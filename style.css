@@ -11,3 +11,13 @@ body {
     font-family: 'Roboto Condensed';
 }
 
+.pad {
+    display: flex;
+    justify-content: center;
+}
+
+.drawing-pad {
+    height: 960px;
+    width: 960px;
+    background-color: white;
+}
