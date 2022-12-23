@@ -23,11 +23,16 @@ btn.addEventListener('click', changeLayout);
 
 function changeLayout() {
     const size = parseInt(prompt("How many square would you like?"));
-    let squareSize = (960 / size) - 2;
+    
+    if (size > 1 && size < 100) {
+        let squareSize = (960 / size) - 2;
 
-    document.documentElement.style.setProperty('--side-square', squareSize + 'px');
-    container.innerHTML = makeSquare(size);
+        document.documentElement.style.setProperty('--side-square', squareSize + 'px');
+        container.innerHTML = makeSquare(size);
 
-    const squares = container.querySelectorAll('.square');
-    squares.forEach(square => square.addEventListener('mouseover', changeColor));
+        const squares = container.querySelectorAll('.square');
+        squares.forEach(square => square.addEventListener('mouseover', changeColor));
+    } else {
+        alert("The number must be between 1 and 100!");
+    }
 }
