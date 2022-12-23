@@ -1,21 +1,14 @@
-const board = document.querySelector(".drawing-pad");
-const small = document.querySelector("#small");
-const medium = document.querySelector("#medium");
-const big = document.querySelector("#big");
-let size = 0;
+const container = document.getElementById('grid');
 
-small.addEventListener('click', function() {
-    size = parseFloat(small.value);
-    console.log(size);
-})
+function makeRows(rows, columns) {
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', columns);
+    for (i = 0; i < (rows * columns); i++) {
+        let cell = document.createElement('div');
+        cell.innerText = (i + 1); 
+        container.appendChild(cell).className = "grid-item";
+    };
+};
 
-medium.addEventListener('click', function() {
-    size = parseFloat(medium.value);
-    console.log(size);
-})
-
-big.addEventListener('click', function() {
-    size = parseFloat(big.value);
-    console.log(size);
-})
+makeRows(16,16);
 
